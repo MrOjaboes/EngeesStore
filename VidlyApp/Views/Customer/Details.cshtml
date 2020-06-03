@@ -1,51 +1,37 @@
-﻿@model VidlyApp.Models.Customer
+﻿                @model VidlyApp.Models.Customer
 
-@{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_AdminPage.cshtml";
-}
+                @{
+                    ViewBag.Title = "Details";
+                    Layout = "~/Views/Shared/_AdminPage.cshtml";
+                }
 
-<h2>Details</h2>
+                    <h2>@Html.DisplayFor(model => model.Name)</h2>
 
-<div>
-    <h4>Customer</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MembershipType.Name)
-        </dt>
+                <div>
+    
+                    <hr />
+                    <ul>
+         
 
-        <dd>
-            @Html.DisplayFor(model => model.MembershipType.Name)
-        </dd>
+                        <li>
+                            Membership Type : @Html.DisplayFor(model => model.MembershipType.Name)
+                        </li>        
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+        
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                        <li>
+                             Subscribed To News Letter : @Html.DisplayFor(model => model.IsSubscribedToNewsletter)
+                        </li>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsSubscribedToNewsletter)
-        </dt>
+         
 
-        <dd>
-            @Html.DisplayFor(model => model.IsSubscribedToNewsletter)
-        </dd>
+                        <li>
+                           Date Of Birth :  @Html.DisplayFor(model => model.Birthdate)
+                        </li>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Birthdate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Birthdate)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                    </ul>
+                </div>
+        <p>
+    
+            @Html.ActionLink("Back to List", "Index")
+        </p>

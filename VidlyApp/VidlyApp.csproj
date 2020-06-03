@@ -198,6 +198,10 @@
     <Compile Include="Migrations\202005292224521_AddDateAddedToCustomer.Designer.cs">
       <DependentUpon>202005292224521_AddDateAddedToCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005310752099_AddEmailToCustomer.cs" />
+    <Compile Include="Migrations\202005310752099_AddEmailToCustomer.Designer.cs">
+      <DependentUpon>202005310752099_AddEmailToCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -205,6 +209,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\VidlyAppContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -279,8 +284,8 @@
     <Content Include="Views\Customer\Details.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
-    <Content Include="Views\Role\RoleLists.cshtml" />
-    <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Admin\RoleList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -313,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005292224521_AddDateAddedToCustomer.resx">
       <DependentUpon>202005292224521_AddDateAddedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005310752099_AddEmailToCustomer.resx">
+      <DependentUpon>202005310752099_AddEmailToCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

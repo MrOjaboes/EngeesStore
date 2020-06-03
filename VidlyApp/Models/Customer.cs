@@ -14,6 +14,11 @@ namespace VidlyApp.Models
         [StringLength(255)]
         public string Name { get; set; }
 
+        [Required]
+        [StringLength(50)]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+
         public bool IsSubscribedToNewsletter { get; set; }
 
         public MembershipType MembershipType { get; set; }
@@ -21,10 +26,11 @@ namespace VidlyApp.Models
         [Display(Name = "Membership Type")]
         public byte MembershipTypeId { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Date of Birth")]
         [DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Date of Birth")]       
         //[Min18YearsIfAMember]
+         
         public DateTime? Birthdate { get; set; }
 
         [DataType(DataType.DateTime)]

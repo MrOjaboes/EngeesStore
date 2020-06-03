@@ -11,13 +11,7 @@ namespace VidlyApp.Controllers
     public class AdminController : Controller
     {
         ApplicationDbContext _db = new ApplicationDbContext();
-        private readonly VidlyAppContext _app = new VidlyAppContext();
-        // GET: Admin
-        public ActionResult Index()
-        {
-            var customers = _app.Customers.ToList();
-            return View(customers);
-        }
+       
 
         //Adding A New Role
        

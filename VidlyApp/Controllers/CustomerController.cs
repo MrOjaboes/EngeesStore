@@ -28,7 +28,7 @@ namespace VidlyApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
+            Customer customer = db.Customers.Include(c => c.MembershipType).FirstOrDefault(c=>c.Id == id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -48,10 +48,11 @@ namespace VidlyApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,IsSubscribedToNewsletter,MembershipTypeId,Birthdate")] Customer customer)
+        public ActionResult Create([Bind(Include = "Id,Name,Email,IsSubscribedToNewsletter,MembershipTypeId,Birthdate")] Customer customer)
         {
             if (ModelState.IsValid)
             {
+                customer.DateAdded = DateTime.Now;
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");

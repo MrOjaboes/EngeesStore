@@ -28,7 +28,7 @@ namespace VidlyApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Movie movie = db.Movies.Find(id);
+            Movie movie = db.Movies.Include(m => m.Genre).FirstOrDefault(m=>m.Id == id);
             if (movie == null)
             {
                 return HttpNotFound();

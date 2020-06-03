@@ -1,67 +1,42 @@
-﻿@model VidlyApp.Models.Movie
+﻿            @model VidlyApp.Models.Movie
 
-@{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_AdminPage.cshtml";
-}
+            @{
+                ViewBag.Title = "Details";
+                Layout = "~/Views/Shared/_AdminPage.cshtml";
+            }
 
-<h2>Details</h2>
+            <h2>@Html.DisplayFor(model => model.Name)</h2>
+            <hr />
+            <ul>
 
-<div>
-    <h4>Movie</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Genre.Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Genre.Name)
-        </dd>
+                <li>
+                    Genre: @Html.DisplayFor(model => model.Genre.Name)
+                </li>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                <li>
+                    Date Added To Stock: @Model.DateAdded.ToLongDateString()
+                </li>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DateAdded)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DateAdded)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ReleaseDate)
-        </dt>
+                <li>
+                    Date Released: @Model.ReleaseDate.ToLongDateString()
+                </li>
 
-        <dd>
-            @Html.DisplayFor(model => model.ReleaseDate)
-        </dd>
+                <li>
+                    Number in Stock: @Html.DisplayFor(model => model.NumberInStock)
+                </li>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NumberInStock)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NumberInStock)
-        </dd>
+                <li>
+                    Number Available In Stock: @Html.DisplayFor(model => model.NumberAvailable)
+                </li>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NumberAvailable)
-        </dt>
+            </ul>
 
-        <dd>
-            @Html.DisplayFor(model => model.NumberAvailable)
-        </dd>
+            <p>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                @Html.ActionLink("Back to List", "Index")
+            </p>
