@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+#head{
+    background-color:crimson;
+    border-radius:2em;
+    text-decoration-color:whitesmoke;
+}
+#head a{
+    color:whitesmoke;
+}
