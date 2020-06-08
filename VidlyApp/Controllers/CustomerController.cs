@@ -52,7 +52,7 @@ namespace VidlyApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                customer.DateAdded = DateTime.Now;
+                
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
