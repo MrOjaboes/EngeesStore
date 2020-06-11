@@ -11,7 +11,8 @@
     <a href="~/Movie/Create/" class="btn btn-primary">Add New Movie</a>
 </p>
 <br />
-<table class="table table-condensed table-hover">
+<table id="movies" class="table table-condensed table-hover">
+    <thead>
     <tr>
 
         <th>
@@ -21,10 +22,12 @@
             Genre
         </th>
 
-        <th></th>
+        <th>Action</th>
     </tr>
-
-@foreach (var item in Model) {
+        </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
 <tr>
 
     <td>
@@ -34,7 +37,39 @@
     <td>
         @Html.DisplayFor(modelItem => item.Genre.Name)
     </td>
+    <td><button data-movie-id="@item.Id" class="btn-link btn-danger js-delete">Delete</button></td>
+
 </tr>
-}
+    }
+        </tbody>
 
 </table>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+           $("#movies").DataTable();
+
+            $("#movies").on("click", ".js-delete", function () {
+                var button = $(this);
+                bootbox.confirm("Are You Sure You Want To Delete This Movie?", function (result) {
+                    if (result) {
+
+                        $.ajax({
+                            url: "/Api/Movie/" + button.attr("data-movie-id"),
+                            method: "DELETE",
+                            success: function () {
+                                //console.log("success");
+                                button.parents("tr").remove();
+                            }
+                        });
+
+                    }
+                });
+
+
+            });
+
+        });
+    </script>
+}

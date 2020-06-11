@@ -17,31 +17,29 @@
         <th>
             Customer
         </th>
-
-
         <th>
             Membership Type
         </th>
         <th>
             Action
         </th>
-        <th></th>
+         
     </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink(item.Name, "Details", new { id = item.Id }) 
-            
-        </td>
-         
-        <td>
-            @Html.DisplayFor(modelItem => item.MembershipType.Name)
-        </td>
-        <td><button data-customer-id="@item.Id" class="btn-link btn-danger js-delete">Delete</button></td>
+        <tr>
+            <td>
+                @Html.ActionLink(item.Name, "Details", new { id = item.Id })
 
-    </tr>
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.MembershipType.Name)
+            </td>
+            <td><button data-customer-id="@item.Id" class="btn-link btn-danger js-delete">Delete</button></td>
+             
+        </tr>
 }
         </tbody>
 
@@ -49,7 +47,8 @@
 @section scripts{
     <script>
         $(document).ready(function () {
-           //$("#customers").DataTable();
+           $("#customers").DataTable();
+            
             $("#customers").on("click", ".js-delete", function () {
                 var button = $(this);
                 bootbox.confirm("Are You Sure You Want To Delete This Customer?", function (result) {
@@ -66,9 +65,10 @@
 
                     }
                 });
-
+                
 
             });
+            
         });
     </script>
     }
